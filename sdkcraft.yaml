@@ -1,6 +1,6 @@
 name: zephyr-xtensa-espressif-esp32
-base: ubuntu@24.04
 adopt-info: toolchain
+build-base: ubuntu@24.04
 summary: Zephyr Toolchain
 description: |
   This SDK provides the Xtensa cross-compiler toolchain for building Zephyr
@@ -17,9 +17,10 @@ slots:
 parts:
   toolchain:
     plugin: dump
-    source: https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v$CRAFT_PROJECT_VERSION/toolchain_linux-x86_64_xtensa-espressif_esp32_zephyr-elf.tar.xz
-    source-type: tar
+    source: .
     override-pull: |
       VERSION=$(cat "$CRAFT_PROJECT_DIR/VERSION")
       craftctl set version="$VERSION"
-      craftctl default
+      curl -fLO "https://github.com/zephyrproject-rtos/sdk-ng/releases/download/v${VERSION}/toolchain_linux-x86_64_xtensa-espressif_esp32_zephyr-elf.tar.xz"
+      tar -xf "toolchain_linux-x86_64_xtensa-espressif_esp32_zephyr-elf.tar.xz" --strip-components=1 -C "$CRAFT_PART_SRC"
+      rm -f "toolchain_linux-x86_64_xtensa-espressif_esp32_zephyr-elf.tar.xz"
