@@ -11,21 +11,28 @@
       "customType": "regex",
       "managerFilePatterns": ["/^VERSION$/"],
       "matchStrings": [
-        "(?<currentValue>[0-9.]+)"
+        "(?<currentValue>[0-9.]+(?:-[a-zA-Z0-9.]+)?)"
       ],
-      "depNameTemplate": "TODO_DEP_NAME",
-      "datasourceTemplate": "TODO_DATASOURCE",
+      "depNameTemplate": "zephyrproject-rtos/sdk-ng",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$",
       "versioningTemplate": "semver"
     }
   ],
   "baseBranchPatterns": [
-    "TODO_BRANCH"
+    "0.17.*",
+    "1.0.*"
   ],
   "packageRules": [
     {
-      "matchPackageNames": ["TODO_DEP_NAME"],
-      "matchBaseBranches": ["TODO_BRANCH"],
-      "allowedVersions": "/^TODO_VERSION_PREFIX\\./"
+      "matchPackageNames": ["zephyrproject-rtos/sdk-ng"],
+      "matchBaseBranches": ["0.17.*"],
+      "allowedVersions": "/^0\\.17\\./"
+    },
+    {
+      "matchPackageNames": ["zephyrproject-rtos/sdk-ng"],
+      "matchBaseBranches": ["1.0.*"],
+      "allowedVersions": "/^1\\.0\\./"
     }
   ]
 }
