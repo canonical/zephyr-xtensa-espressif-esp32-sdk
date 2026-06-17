@@ -7,6 +7,7 @@ description: |
   firmware targeting the xtensa-espressif_esp32_zephyr-elf target triple.
   Use this SDK alongside the zephyr base SDK.
 license: Apache-2.0
+website: https://github.com/canonical/zephyr-xtensa-espressif-esp32-sdk
 platforms:
   amd64:
 
