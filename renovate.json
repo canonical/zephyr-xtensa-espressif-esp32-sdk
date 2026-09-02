@@ -13,6 +13,8 @@
       "versioningTemplate": "semver"
     }
   ],
+  "automerge": true,
+  "platformAutomerge": true,
   "baseBranchPatterns": ["/^0\\.17\\./", "/^1\\.0\\./"],
   "packageRules": [
     {
